@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/header.ejs %>
+</head>
+
+<body>
+
+
+<div class="container">
+  <div class="alert alert-info text-center" role="alert">
+  </div>
+  <hr>
+
+  <div class="row">
+
+      <table class="table " style="width: 50%">
+
+
+          <thead>
+          <tr>
+              <th scope="col">#</th>
+              <th scope="col"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+              <td>Name</td>
+              <td></td>
+              <td><%=match.person.name%></td>
+          </tr>
+          <tr>
+              <td >created_date</td>
+              <td>:</td>
+              <td><%=match.created_date%></td>
+          </tr>
+          <tr>
+              <td >last_activity_date</td>
+              <td>:</td>
+              <td><%=match.last_activity_date%></td>
+          </tr>
+          <tr>
+              <td >last 5 messages:</td>
+              <td>:</td>
+              <td><%
+                  match.messages.forEach(function (message,i) {
+                  %>
+                  <span><%=message.message%></span>
+                  <%
+                  });
+                  %></td>
+          </tr>
+          <tr>
+              <td >photos:</td>
+              <td>:</td>
+              <td>
+                  <%
+                  match.person.photos.forEach(function (photo) {
+                        %>
+                 <a href="<%=photo.url%>" target="_blank"> <img height="100" width="100" src="<%=photo.url%>"/></a><br>
+                  <%
+
+                    });
+                    %>
+
+              </td>
+          </tr>
+
+          </tbody>
+      </table>
+      <textarea style="width: 768px; height: 228px;"><%=JSON.stringify(match)%></textarea>
+
+  </div> <!-- row -->
+</div>
+
+
+</body>
+</html>

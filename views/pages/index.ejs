@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/header.ejs %>
+</head>
+
+<% include ../partials/nav.ejs %>
+<body>
+
+
+<div class="container">
+    <div class="alert alert-info text-center" role="alert">
+        <h4>
+            My Home</h4>
+    </div>
+    <hr>
+
+
+    </h4>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Last Data</h3>
+        </div>
+        <div class="panel-body">
+            <div class="">
+                <span>Humidity =<%= dht11.humidity %> </span><br>
+                <span>Temperature = <%= dht11.temperature %></span><br>
+                <span>Temperature2 = <%= dht11.temperature2 %></span><br>
+                <span>Node = <%= dht11.node %></span><br>
+                <span>Date = <%= dht11.date %></span>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+
+    <div class="">
+        <div class="btn-group">
+            <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"> Select node <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu nodes">
+            </ul>
+        Selected : <label class="selected-node"></label>
+        </div>
+
+        <br/>
+        <br/>
+        <p>Date: <input type="text" id="datepicker"></p>
+    </div>
+
+    <br>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <!--<th scope="col">#</th>-->
+            <th scope="col">Node</th>
+            <th scope="col">Temperature(℃) </th>
+            <th scope="col">Temperature2(℃)</th>
+            <th scope="col">Humidity(%)</th>
+            <th scope="col">Time</th>
+        </tr>
+        </thead>
+        <tbody class="table-body">
+
+        </tbody>
+    </table>
+    <br><br>
+    <div id="chartdiv"></div>
+</div>
+
+</body>
+</html>
+
+
+<style>
+    #chartdiv {
+        width: 100%;
+        height: 500px;
+    }
+
+</style>
+
+<!-- Resources -->
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
